@@ -6,16 +6,15 @@ const data = argv[2];
 
 //Creation du fichier "fichier.txt" avec "" comme contenu
 appendFile("fichier.txt", "" , function (err) {
-    //Ici le non ternaire (if else classique)
-    // si ya une erreur log de l'erreur
-    /* if (err) {
+    /*Ici le non ternaire (if else classique)
+        si ya une erreur log de l'erreur
+    if (err) {
         console.log(err);
     } else {
         // sinon log "fichier crée"
         console.log("fichier crée");
     } */
-
-
+    
     //ternaire
     // si ya une erreur log de l'erreur
     // sinon log "fichier crée"
