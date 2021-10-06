@@ -2,6 +2,7 @@
 
 function checkProto(req, res, next) {
     let proto = req.protocol;
+    //si proto n'est pas https
     if (proto !== "https") {
         res.status(403).send("Le Protocole n'est pas https")
         return;

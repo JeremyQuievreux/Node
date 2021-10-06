@@ -6,7 +6,7 @@ var logger = require('morgan');
 const index = require('./routes/index');
 const products = require('./routes/products');
 const reseller = require('./routes/reseller');
-
+//import de mes middleware
 const checkXHR = require('./middleware/checkXHR');
 const checkMandT = require('./middleware/checkMandT');
 const checkProto = require('./middleware/checkProto');
@@ -25,7 +25,7 @@ app.use('/products', products);
 app.use('/reseller', reseller);
 
 
-//pour tester que sur des routes spécifiques
+//pour tester que sur des routes spécifiques mes middleware perso
 app.use("/xhr", checkXHR);
 app.use("/teapot", checkMandT);
 app.use("/proto", checkProto);

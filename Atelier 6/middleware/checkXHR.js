@@ -3,8 +3,10 @@
 
 function checkXHR(req, res, next) {
     let xhr = req.xhr;
+    //si xhr false
     if (!xhr) {
       res.status(400).send("Votre requete n'est pas de type XHR");
+      //sinon
     } else {
        /* next() ; */
       res.send("Votre requete est bien de type XHR");
