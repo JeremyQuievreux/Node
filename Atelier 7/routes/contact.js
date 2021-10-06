@@ -1,28 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const { appendFile } = require('fs');
+
+const contactCtrl = require('../controllers/contact');
 
 /* GET home page. */
-router.post('/', function(req, res, next) {
-    console.log(req.body);
-    let date = new Date();
-    let d = date.getDate();
-    let m = date.getMonth();
-    let y = date.getFullYear();
-    let min = date.getMinutes();
-    let h = date.getHours();
-    let sec = date.getSeconds();
-    let filename = "" + d + "" + m + "" + y + "-" + h + "" + min + "" + sec + ".txt";
-    let content = `nom : ${req.body.firstname} | Prenom : ${req.body.lastname} | Mail : ${req.body.mail} | Message : ${req.body.message}`;
-
-
-    appendFile("./contact/" + filename +"", content, (err) => {
-        if (err) throw err;
-        console.log('The file has been saved!');
-      });
-
-
-  res.render('index', { title: 'Express' });
-});
+router.post('/', contactCtrl.createFile);
 
 module.exports = router;
