@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Le Formulaire</h1>
+    <form action="/contact" method="post">
+      <div class="form line">
+        <label for="firstname">Votre nom : </label>
+        <input type="text" name="firstname" id="firstname">
+      </div>
+      <div class="form-line">
+        <label for="lastname">Votre prénom : </label>
+        <input type="text" name="lastname" id="lastname">
+      </div>
+      <div class="form-line">
+        <label for="email">Votre adresse mail :</label>
+        <input type="text" name="email" id="eamil">
+      </div>
+      <div class="form-line">
+        <label for="message">Votre message : </label>
+        <input type="text" name="message" id="message">
+      </div>
+      <button type="submit">Envoyer</button>
+    </form>
+  </body>
+</html>
