@@ -11,7 +11,8 @@ router.post('/', function(req, res, next) {
     let y = date.getFullYear();
     let min = date.getMinutes();
     let h = date.getHours();
-    let filename = "" + d + "" + m + "" + y + "-" + h + "" + min + ".txt"
+    let sec = date.getSeconds();
+    let filename = "" + d + "" + m + "" + y + "-" + h + "" + min + "" + sec + ".txt";
     let content = `nom : ${req.body.firstname} | Prenom : ${req.body.lastname} | Mail : ${req.body.mail} | Message : ${req.body.message}`;
 
 
