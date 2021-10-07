@@ -1,6 +1,3 @@
-/* 
-  /router 
-*/
 var express = require('express');
 const Users = require('../controllers/users'); // <- LE CONTROLEUR
 var router = express.Router(); 
@@ -18,34 +15,25 @@ router.get('/', Users.printUserLength, Users.printUserAdminlength, (req, res, ne
  */
 router.get('/admin', Users.renderAdminUsersPage)
 
-
-router.get('/new', (req,res) => {
-  res.render('form', {answered:false})
-})
 /**
  * Afficher un formulaire de contact pour devenir membre
  * GET /users/new
  */
+
+router.get('/new', Users.renderForm)
 
 /**
  * Formulaire de contact pour devenir membre
  * POST /users/new
  */
 
-router.post('/new',(req,res) => {
-  let newId = Math.floor(Math.random() * 2_000_000)
-  const firstname = req.body.first_name
-  const lastname = req.body.last_name
-  const email = req.body.email
-  console.log(`user #${newId} created ${firstname}, ${lastname}, ${email}`)
-  res.render('form', {answered:true, id:newId})
-})
+router.post('/new',Users.createUser, Users.reRenderForm)
 
 /**
- * Récupérer en données la liste des utilisateurs
+ * Récupérer en données la ²liste des utilisateurs
  * GET /users/list
  */
-
+router.get('/list', Users.getAllUsers)
 /**
  * Récupérer en données le nombre d'utilisateurs
  * GET /users/count
