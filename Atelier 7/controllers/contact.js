@@ -13,10 +13,13 @@ exports.createFile = (req, res, next) => {
     let filename = "" + d + "" + m + "" + y + "-" + h + "" + min + "" + sec + ".txt";
     let content = `nom : ${req.body.firstname} | Prenom : ${req.body.lastname} | Mail : ${req.body.email} | Message : ${req.body.message}`;
 
-
     appendFile("./contact/" + filename +"", content, (err) => {
         if (err) throw err;
         console.log('The file has been saved!');
       });
-      res.render('index', { title: 'Express' });
-}
+      next();
+};
+
+exports.redirect = (req, res, next) => {
+  res.redirect('/');
+};
