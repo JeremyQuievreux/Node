@@ -1,6 +1,6 @@
 function middlewareA(req, res, next) {
     console.log("A");
-    let letters = req.body.letters;
+    let letters = req.letters;
     letters.push("a");
     next();
 }
