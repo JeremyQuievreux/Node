@@ -30,7 +30,7 @@ router.get('/new', Users.renderForm)
 router.post('/new',Users.createUser, Users.reRenderForm)
 
 /**
- * Récupérer en données la ²liste des utilisateurs
+ * Récupérer en données la liste des utilisateurs
  * GET /users/list
  */
 router.get('/list', Users.getAllUsers)
@@ -38,20 +38,15 @@ router.get('/list', Users.getAllUsers)
  * Récupérer en données le nombre d'utilisateurs
  * GET /users/count
  */
-
 /**
  * Récupérer en données le nombre d'admins
  * GET /users/count?isAdmin=true
  */
-
 /**
  * Récupérer en données le nombre d'utilisateurs non-admins
  * GET /users/count?isAdmin=false
  */
-
-
-
-
+router.get('/count', Users.getUsersFiltered)
 
 
 

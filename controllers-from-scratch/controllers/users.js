@@ -3,9 +3,13 @@ let usersNumber = users.length
 
 function adminFilterFunction(person){
     return person.isAdmin
-  }
+}
+function notAdminFilterFunction(person){
+    return !person.isAdmin
+}
 
 const onlyAdmins = users.filter(adminFilterFunction)
+const notAdmin = users.filter(notAdminFilterFunction)
 
 const Users = {
 
@@ -49,7 +53,19 @@ const Users = {
         res.render('form', {answered:false})
     },
     getAllUsers(req, res, next) {
-        res.send('ici tous les utilisateurs')
+        res.json(users)
+    },
+    usersCount(req, res, next){
+        res.send("il y a " + usersNumber + " utilisateurs")
+    },
+    getUsersFiltered(req, res, next){
+        if (req.query.isAdmin === "true") {
+            res.json(onlyAdmins)
+        } else if (req.query.isAdmin === "false") {
+            res.json(notAdmin)
+        }else {
+            res.json(users)
+        }
     }
 }
 
