@@ -1,0 +1,94 @@
+1 - use ateliermdb
+
+2 - db.customers.insertMany([
+    {
+        name:"Quievreux",
+        prenom:"Jeremy",
+        mail:"monmail@gmail.com",
+        tel:"0601020304",
+        fpoints:10,
+        history:[
+            {
+                product_name:"article 1",
+                product_prise:"100€"
+            },{
+                product_name:"article 2", 
+                product_prise:"50€"
+            }
+        ]
+    },
+    {
+        name:"DeJeff",
+        prenom:"Jeff",
+        mail:"monmail@gmail.com",
+        tel:"0601020304",
+        fpoints:30,
+        history:[
+            {
+                product_name:"article 1",
+                product_prise:"100€"
+            },{
+                product_name:"article 2", 
+                product_prise:"50€"
+            }
+        ]
+    },{
+        name:"xyz",
+        prenom:"Lois",
+        mail:"monmail@gmail.com",
+        tel:"0601020304",
+        fpoints:60,
+        history:[
+            {
+                product_name:"article 1",
+                product_prise:"100€"
+            },{
+                product_name:"article 2", 
+                product_prise:"50€"
+            }
+        ]
+    },{
+        name:"xyz",
+        prenom:"Narek",
+        mail:"monmail@gmail.com",
+        tel:"0601020304",
+        fpoints:80,
+        history:[
+            {
+                product_name:"article 1",
+                product_prise:"100€"
+            },{
+                product_name:"article 2", 
+                product_prise:"50€"
+            }
+        ]
+    },{
+        name:"Gauthier",
+        prenom:"Antonin",
+        mail:"monmail@gmail.com",
+        tel:"0601020304",
+        fpoints:100,
+        history:[
+            {
+                product_name:"article 1",
+                product_prise:"100€"
+            },{
+                product_name:"article 2", 
+                product_prise:"50€"
+            }
+        ]
+    }
+])
+
+3 - db.customers.find()
+
+4 - db.customers.updateOne({name:"Quievreux"}, {$push : {history:{product_name:"article3", product_prise:"150€"}}})
+
+5 - db.customers.deleteOne( { name: "DeJeff" } )
+
+6 - db.customers.find( { name: "xyz" }, { history: 1, mail : 1 } )
+
+7 - db.customers.find( { fpoints: { $gt: 50 } } )
+
+8 -db.customers.find({$and: [{fpoints: {$gt: 20}},{fpoints: {$lt: 50}} ]})
+

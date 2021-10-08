@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accueil</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Formulaire</h1>
+    <form action="/adduser" method="post">
+      <div>
+        <label for="firstname">Votre nom : </label>
+        <input type="text" name="firstname" id="firstname">
+      </div>
+      <div>
+        <label for="lastname">Votre prénom : </label>
+        <input type="text" name="lastname" id="lastname">
+      </div>
+      <div>
+        <label for="email">Votre adresse mail : </label>
+        <input type="text" name="email" id="email">
+      </div>
+      <button type="submit">Add User</button>
+    </form>
+  </body>
+</html>
